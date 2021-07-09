@@ -1,0 +1,23 @@
+<table th:fragment="table" class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">First Name</th>
+    <th scope="col">Last Name</th>
+    <th scope="col">Age</th>
+    <th scope="col">Email</th>
+    <th scope="col">Role</th>
+    <th id="column_edit" sec:authorize="hasRole('ROLE_ADMIN')" th:if="${targetPage.equals('admin')}" scope="col">
+      Edit
+      <div th:replace="fragment/modalEdit :: modalEdit"></div>
+    </th>
+    <th id="column_delete" sec:authorize="hasRole('ROLE_ADMIN')" th:if="${targetPage.equals('admin')}" scope="col">
+      Delete
+      <div th:replace="fragment/modalDelete :: modalDelete"></div>
+    </th>
+  </tr>
+  </thead>
+  <tbody id="table">
+
+  </tbody>
+</table>

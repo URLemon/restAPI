@@ -1,0 +1,8 @@
+<header th:fragment="header " class="container-fluid bg-dark text-white d-flex flex-row align-items-center justify-content-between">
+  <div class="d-flex flex-row align-items-center">
+    <p class="m-1" th:text="${user.email}"> </p>
+    <p class="m-1"> with roles: </p>
+    <p class="m-1" th:each="role: ${user.roles}" th:text="${role.getNameRole()}"></p>
+  </div>
+  <input type="button" value="logout" class="btn bg-dark text-white-50" onclick="window.location.href = '/?logout';">
+</header>
